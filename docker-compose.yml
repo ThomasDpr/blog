@@ -12,8 +12,8 @@ services:
       - .env
     environment:
       POSTGRES_DB: blog
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${BDD_USERNAME}
+      POSTGRES_PASSWORD: ${BDD_PASSWORD}
     networks:
       - blog
     volumes:

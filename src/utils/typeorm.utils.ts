@@ -16,6 +16,7 @@ export function GetDatabaseConfig(
   return {
     logging: true,
     type: 'postgres',
+    // 👇 Si on met synchronize à true, cela empêche les migrations et créer automatiquement les tables
     synchronize: false,
     host: configService.get('database.host'),
     database: configService.get('database.database'),
