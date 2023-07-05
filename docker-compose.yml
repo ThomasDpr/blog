@@ -5,6 +5,7 @@ networks:
 
 services:
   postgresql:
+    container_name: bdd_container
     image: postgres:15
     ports:
       - 5455:5432

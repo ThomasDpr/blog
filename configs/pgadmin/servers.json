@@ -5,7 +5,7 @@
       "Group": "Servers",
       "Port": 5432,
       "Username": "root",
-      "Host": "postgresql",
+      "Host": "bdd_container",
       "SSLMode": "prefer",
       "MaintenanceDB": "postgres"
     }
