@@ -21,6 +21,6 @@ export const connectionSource = new DataSource({
   username: process.env.BDD_USERNAME || 'root',
   database: process.env.BDD_DATABASE || 'blog',
   port: parseInt(process.env.BDD_PORT, 10) || 5455,
-  migrations: [join(__dirname, '..', 'migrations', '*.ts')],
+  migrations: [join(__dirname, '..', 'database', 'migrations', '*.ts')],
   entities: [join(__dirname, '..', '**', '*.entity{.ts,.js}')],
 });

@@ -24,7 +24,7 @@ export function GetDatabaseConfig(
     password: configService.get('database.password'),
     ssl: ssl ? { rejectUnauthorized: false } : undefined,
     port: parseInt(configService.get('database.port') as string, 10),
-    migrations: [join(__dirname, '..', 'migrations', '*.ts')],
+    migrations: [join(__dirname, '..', 'database', 'migrations', '*.ts')],
     entities: [join(__dirname, '..', '**', '*.entity{.ts,.js}')],
   };
 }
