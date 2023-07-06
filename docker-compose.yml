@@ -1,31 +1,31 @@
-version: '3'
+version: '3' # C'est la version de docker-compose
 
-networks:
-  blog:
+networks: # C'est le réseau virtuel interne de docker-compose
+  blog: # C'est le nom du réseau virtuel interne de docker-compose
 
-services:
+services: # C'est les images docker que l'on va utiliser
   postgresql:
     container_name: bdd_container
     image: postgres:15
     ports:
-      - 5455:5432
-    env_file:
+      - 5455:5432 # Le port 5455 c'est le port de notre machine, le 5432 c'est le port de l'image docker
+    env_file: # C'est le fichier .env qui contient les variables d'environnement
       - .env
-    environment:
-      POSTGRES_DB: blog
-      POSTGRES_USER: ${BDD_USERNAME}
-      POSTGRES_PASSWORD: ${BDD_PASSWORD}
-    networks:
+    environment: # C'est les variables d'environnement
+      POSTGRES_DB: blog # C'est le nom de la base de données
+      POSTGRES_USER: ${BDD_USERNAME} # C'est le nom d'utilisateur de la base de données
+      POSTGRES_PASSWORD: ${BDD_PASSWORD} # C'est le mot de passe de la base de données
+    networks: # C'est le réseau virtuel sur lequel l'image docker va être connecté
       - blog
-    volumes:
+    volumes: # C'est le volume qui va contenir les données de la base de données
       - ./volumes/postgresql:/var/lib/postgresql/data
 
-  pgadmin4:
+  pgadmin4: # C'est l'image docker de pgadmin4
     image: dpage/pgadmin4:7.4
     env_file:
       - .env
     ports:
-      - 3500:80
+      - 3500:80 # Le port 3500 c'est le port de notre machine, le 80 c'est le port de l'image docker
     environment:
       - 'PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}'
       - 'PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}'
