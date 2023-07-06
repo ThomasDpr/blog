@@ -1,3 +1,8 @@
+//================================================================================//
+// > Ce fichier définit le module racine de l'application                         //
+// > Il importe tous les autres modules que notre application a besoin            //
+//================================================================================//
+
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -5,7 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GetDatabaseConfig } from './utils/typeorm.utils';
 import { config } from './configs';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
